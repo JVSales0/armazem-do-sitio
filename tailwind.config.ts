@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Add custom site colors
+				'site-green': {
+					light: '#e6f7e6', // Very light green for backgrounds
+					DEFAULT: '#4caf50', // Medium green for buttons and accents
+					dark: '#388e3c', // Darker green for hover states
 				}
 			},
 			borderRadius: {
