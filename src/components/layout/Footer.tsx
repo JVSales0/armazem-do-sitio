@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-white/95 to-white/80 -z-10"></div>
       <div 
         className="absolute inset-0 w-full h-full -z-20 bg-cover bg-center" 
-        style={{ backgroundImage: 'url("/footer-background.jpg")' }}
+        style={{ backgroundImage: 'url("/lovable-uploads/50f5adb4-3361-4d85-bdcd-bfc11e4d384c.png")' }}
       ></div>
 
       <div className="container mx-auto px-4 relative z-10">
