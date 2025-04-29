@@ -25,10 +25,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
           />
         </div>
         <CardContent className="p-4">
-          <h3 className="font-medium text-xl mb-1 text-gray-900 line-clamp-2">
+          <h3 className="font-medium text-xl mb-1 text-gray-900 dark:text-site-green-light line-clamp-2">
             {product.name}
           </h3>
-          <p className="text-gray-500 text-sm mb-2 line-clamp-2">
+          <p className="text-gray-500 dark:text-gray-300 text-sm mb-2 line-clamp-2">
             {product.description}
           </p>
           <p className="text-site-green font-bold text-lg">

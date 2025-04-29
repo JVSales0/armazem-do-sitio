@@ -68,7 +68,8 @@ export default {
 					light: '#e6f7e6', // Very light green for backgrounds
 					DEFAULT: '#4caf50', // Medium green for buttons and accents
 					dark: '#388e3c', // Darker green for hover states
-				}
+				},
+				'site-green-light': '#a5d6a7' // Lighter green for text in dark mode
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -45,7 +45,7 @@ const Index = () => {
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-5xl">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-site-green-light">
               Produtos em Destaque
             </h2>
             <Link to="/products" className="text-site-green hover:underline flex items-center">
@@ -95,7 +95,7 @@ const Index = () => {
       {/* How to Buy Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-site-green-light mb-10 text-center">
             Como Comprar
           </h2>
           
@@ -104,8 +104,8 @@ const Index = () => {
               <div className="w-14 h-14 bg-site-green-light rounded-full flex items-center justify-center mb-4">
                 <span className="text-site-green text-xl font-bold">1</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Escolha os Produtos</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 dark:text-site-green-light">Escolha os Produtos</h3>
+              <p className="text-gray-600 dark:text-gray-300">
                 Navegue pelo site e selecione os produtos que deseja comprar, adicionando-os ao carrinho.
               </p>
             </div>
@@ -114,8 +114,8 @@ const Index = () => {
               <div className="w-14 h-14 bg-site-green-light rounded-full flex items-center justify-center mb-4">
                 <span className="text-site-green text-xl font-bold">2</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Faça seu Pedido</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 dark:text-site-green-light">Faça seu Pedido</h3>
+              <p className="text-gray-600 dark:text-gray-300">
                 Revise seu carrinho e finalize o pedido pelo WhatsApp para combinar a entrega.
               </p>
             </div>
@@ -124,8 +124,8 @@ const Index = () => {
               <div className="w-14 h-14 bg-site-green-light rounded-full flex items-center justify-center mb-4">
                 <span className="text-site-green text-xl font-bold">3</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Receba em Casa</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 dark:text-site-green-light">Receba em Casa</h3>
+              <p className="text-gray-600 dark:text-gray-300">
                 Receba seus produtos fresquinhos diretamente em sua casa, acompanhando o status da entrega.
               </p>
             </div>

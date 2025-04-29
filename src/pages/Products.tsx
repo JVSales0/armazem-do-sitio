@@ -23,7 +23,7 @@ const Products = () => {
   return (
     <Layout>
       <div className="container mx-auto max-w-5xl py-12 px-4">
-        <h1 className="text-2xl md:text-3xl font-bold mb-8">Nossos Produtos</h1>
+        <h1 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900 dark:text-site-green-light">Nossos Produtos</h1>
 
         {isLoading ? (
           <div className="text-center py-12">Carregando produtos...</div>
