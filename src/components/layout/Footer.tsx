@@ -3,8 +3,15 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-green-100 py-8 mt-auto">
-      <div className="container mx-auto px-4">
+    <footer className="relative py-8 mt-auto">
+      {/* Footer background image with gradient overlay */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-white/95 to-white/80 -z-10"></div>
+      <div 
+        className="absolute inset-0 w-full h-full -z-20 bg-cover bg-center" 
+        style={{ backgroundImage: 'url("/footer-background.jpg")' }}
+      ></div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About section */}
           <div>

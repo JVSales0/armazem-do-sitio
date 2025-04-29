@@ -28,16 +28,23 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-white border-b border-green-100 sticky top-0 z-20 shadow-sm">
+    <header className="relative bg-transparent z-20">
+      {/* Header background image with gradient overlay */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-white/95 to-white/80 -z-10"></div>
+      <div 
+        className="absolute inset-0 w-full h-full -z-20 bg-cover bg-center" 
+        style={{ backgroundImage: 'url("/header-background.jpg")' }}
+      ></div>
+      
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo and name */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2 relative z-10">
             <span className="text-2xl font-bold text-site-green">Armazém do Sítio</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-6 relative z-10">
             {nav.map((item) => (
               <Link
                 key={item.name}
@@ -54,7 +61,7 @@ export const Header = () => {
           </nav>
 
           {/* User, Cart, Notifications */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 relative z-10">
             {/* Notifications */}
             {user && (
               <Link to="/notifications" className="relative">
