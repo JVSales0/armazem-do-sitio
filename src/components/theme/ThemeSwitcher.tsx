@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 
 const ThemeSwitcher = () => {
@@ -26,13 +25,14 @@ const ThemeSwitcher = () => {
 
   return (
     <div className="flex items-center gap-2 rounded-md px-2 py-1.5">
-      <Sun className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+      <Sun className={`h-5 w-5 ${isDarkMode ? 'text-gray-400' : 'text-yellow-500'}`} />
       <Switch 
         checked={isDarkMode}
         onCheckedChange={toggleTheme}
         aria-label="Alternar tema"
+        className={isDarkMode ? "bg-primary" : ""}
       />
-      <Moon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+      <Moon className={`h-5 w-5 ${isDarkMode ? 'text-primary' : 'text-gray-600'}`} />
     </div>
   );
 };
