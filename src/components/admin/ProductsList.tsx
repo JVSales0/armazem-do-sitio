@@ -95,13 +95,13 @@ const ProductsList = () => {
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-between gap-4 mb-6">
-        <div className="flex items-center w-full sm:w-auto">
+        <div className="flex items-center w-full sm:w-auto relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Buscar produtos..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full"
-            startIcon={<Search className="h-4 w-4" />}
+            className="w-full pl-9"
           />
         </div>
         <Link to="/admin/products/add">
