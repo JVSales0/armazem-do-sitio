@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -8,6 +7,7 @@ import { ShoppingCart, Bell, Menu, X, User, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import ThemeSwitcher from "@/components/theme/ThemeSwitcher";
 
 export const Header = () => {
   const { user, logout, isAdmin } = useAuth();
@@ -30,7 +30,7 @@ export const Header = () => {
   return (
     <header className="relative bg-transparent z-20">
       {/* Header background image with gradient overlay */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-white/95 to-white/80 -z-10"></div>
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-white/95 dark:from-gray-900/95 to-white/80 dark:to-gray-900/80 -z-10"></div>
       <div 
         className="absolute inset-0 w-full h-full -z-20 bg-cover bg-center" 
         style={{ backgroundImage: 'url("/lovable-uploads/50f5adb4-3361-4d85-bdcd-bfc11e4d384c.png")' }}
@@ -40,7 +40,7 @@ export const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo and name */}
           <Link to="/" className="flex items-center space-x-2 relative z-10">
-            <span className="text-2xl font-bold text-site-green">Armazém do Sítio</span>
+            <span className="text-2xl font-bold text-site-green dark:text-site-green">Armazém do Sítio</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,8 +51,8 @@ export const Header = () => {
                 to={item.href}
                 className={`text-lg ${
                   isActive(item.href)
-                    ? "text-site-green font-medium"
-                    : "text-gray-600 hover:text-site-green"
+                    ? "text-site-green font-medium dark:text-site-green"
+                    : "text-gray-600 hover:text-site-green dark:text-gray-300 dark:hover:text-site-green"
                 }`}
               >
                 {item.name}
@@ -60,8 +60,13 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* User, Cart, Notifications */}
+          {/* User, Cart, Notifications, Theme */}
           <div className="flex items-center space-x-4 relative z-10">
+            {/* Theme Switcher */}
+            <div className="hidden sm:block">
+              <ThemeSwitcher />
+            </div>
+
             {/* Notifications */}
             {user && (
               <Link to="/notifications" className="relative">
@@ -120,20 +125,20 @@ export const Header = () => {
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-6 w-6 text-gray-600" />
+                  <Menu className="h-6 w-6 text-gray-600 dark:text-gray-300" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[80%] sm:w-[350px] p-0">
-                <div className="flex flex-col h-full bg-white">
-                  <div className="p-4 border-b border-gray-200">
+              <SheetContent side="right" className="w-[80%] sm:w-[350px] p-0 bg-background dark:bg-background">
+                <div className="flex flex-col h-full bg-background dark:bg-background">
+                  <div className="p-4 border-b border-gray-200 dark:border-gray-700">
                     <div className="flex items-center justify-between">
-                      <span className="text-xl font-bold text-site-green">Menu</span>
+                      <span className="text-xl font-bold text-site-green dark:text-site-green">Menu</span>
                       <Button 
                         variant="ghost" 
                         size="icon" 
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <X className="h-5 w-5" />
+                        <X className="h-5 w-5 dark:text-gray-300" />
                       </Button>
                     </div>
                   </div>
@@ -147,8 +152,8 @@ export const Header = () => {
                           onClick={() => setMobileMenuOpen(false)}
                           className={`py-3 px-4 text-lg ${
                             isActive(item.href)
-                              ? "bg-site-green-light font-medium text-site-green"
-                              : "text-gray-600 hover:bg-gray-50"
+                              ? "bg-site-green-light dark:bg-secondary font-medium text-site-green dark:text-site-green"
+                              : "text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800"
                           }`}
                         >
                           {item.name}
@@ -156,8 +161,16 @@ export const Header = () => {
                       ))}
                     </nav>
 
+                    {/* Theme Switcher in Mobile Menu */}
+                    <div className="px-4 py-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-600 dark:text-gray-300">Tema</span>
+                        <ThemeSwitcher />
+                      </div>
+                    </div>
+
                     {/* Mobile User Menu */}
-                    <div className="mt-6 px-4 py-4 border-t border-gray-200">
+                    <div className="mt-6 px-4 py-4 border-t border-gray-200 dark:border-gray-700">
                       {user ? (
                         <div className="flex flex-col space-y-3">
                           <div className="flex items-center space-x-3">
