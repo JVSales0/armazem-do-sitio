@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import Layout from "@/components/layout/Layout";
-import ProductForm from "@/components/admin/ProductForm";
+import ProductForm from "@/components/admin/product-form";
 import { getProductById } from "@/services/productService";
 import { Product } from "@/types/product";
 

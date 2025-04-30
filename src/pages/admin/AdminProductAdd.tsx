@@ -2,7 +2,7 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import Layout from "@/components/layout/Layout";
-import ProductForm from "@/components/admin/ProductForm";
+import ProductForm from "@/components/admin/product-form";
 
 const AdminProductAdd = () => {
   const { isAdmin, isLoading } = useAuth();
