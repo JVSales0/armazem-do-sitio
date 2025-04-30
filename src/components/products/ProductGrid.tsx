@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Product } from "@/types/product";
 import ProductCard from "./ProductCard";
@@ -38,6 +37,8 @@ const ProductGrid = ({ products }: ProductGridProps) => {
       conservas: "Conservas",
       doces: "Doces",
       bebidas: "Bebidas",
+      racoes: "Rações para Pets",
+      organicos_animais: "Produtos Orgânicos Animais",
       outros: "Outros"
     };
     

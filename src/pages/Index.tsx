@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import ProductGrid from "@/components/products/ProductGrid";
@@ -13,9 +12,9 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Get featured products (just the first 4 for now)
+    // Get featured products (increased to 8 to show new products)
     const products = getAllProducts();
-    setFeaturedProducts(products.slice(0, 4));
+    setFeaturedProducts(products.slice(0, 8));
     setIsLoading(false);
   }, []);
 
