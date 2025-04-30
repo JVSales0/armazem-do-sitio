@@ -14,6 +14,9 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const { addToCart } = useCart();
 
+  // Check if the image is a data URL or a regular URL
+  const isDataUrl = product.imageUrl.startsWith('blob:') || product.imageUrl.startsWith('data:');
+
   return (
     <Card className="h-full flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200">
       <Link to={`/products/${product.id}`} className="flex-grow">
@@ -22,6 +25,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
             src={product.imageUrl}
             alt={product.name}
             className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            onError={(e) => {
+              // Fallback if image fails to load
+              (e.target as HTMLImageElement).src = "/placeholder.svg";
+            }}
           />
         </div>
         <CardContent className="p-4">

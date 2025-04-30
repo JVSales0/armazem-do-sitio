@@ -50,6 +50,8 @@ const ProductDetail = () => {
       conservas: "Conservas",
       doces: "Doces",
       bebidas: "Bebidas",
+      racoes: "Rações para Pets",
+      organicos_animais: "Produtos Orgânicos Animais",
       outros: "Outros"
     };
     
@@ -106,6 +108,10 @@ const ProductDetail = () => {
                   src={product.imageUrl}
                   alt={product.name}
                   className="max-h-80 object-contain"
+                  onError={(e) => {
+                    // Fallback if image fails to load
+                    (e.target as HTMLImageElement).src = "/placeholder.svg";
+                  }}
                 />
               </div>
 

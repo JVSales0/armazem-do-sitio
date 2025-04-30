@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Product, ProductCategory } from "@/types/product";
 import { addProduct, updateProduct } from "@/services/productService";
+import { Image, Upload } from "lucide-react";
 
 interface ProductFormProps {
   product?: Product;
@@ -25,9 +26,35 @@ const ProductForm = ({ product, isEditing = false }: ProductFormProps) => {
   const [stock, setStock] = useState(product?.stock.toString() || "0");
   const [unit, setUnit] = useState(product?.unit || "unidade");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [localImage, setLocalImage] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(product?.imageUrl || null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   
   const { toast } = useToast();
   const navigate = useNavigate();
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setLocalImage(file);
+      
+      // Create a preview URL for the uploaded image
+      const objectURL = URL.createObjectURL(file);
+      setPreviewUrl(objectURL);
+      
+      // Clear the remote imageUrl since we're using a local image
+      setImageUrl("");
+      
+      toast({
+        title: "Imagem selecionada",
+        description: `${file.name} foi selecionada como imagem do produto.`,
+      });
+    }
+  };
+  
+  const triggerFileInput = () => {
+    fileInputRef.current?.click();
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,12 +71,21 @@ const ProductForm = ({ product, isEditing = false }: ProductFormProps) => {
     setIsSubmitting(true);
     
     try {
+      // Process the image if there's a local upload
+      let finalImageUrl = imageUrl;
+      
+      if (localImage) {
+        // In a real app with backend, you'd upload this to a server
+        // Since we're using local storage, we'll use the local data URL
+        finalImageUrl = previewUrl || "";
+      }
+      
       const productData = {
         id: product?.id || "",
         name,
         description,
         price: parseFloat(price),
-        imageUrl,
+        imageUrl: finalImageUrl,
         category,
         stock: parseInt(stock),
         unit,
@@ -89,6 +125,8 @@ const ProductForm = ({ product, isEditing = false }: ProductFormProps) => {
     "conservas", 
     "doces", 
     "bebidas", 
+    "racoes",
+    "organicos_animais",
     "outros"
   ];
 
@@ -101,6 +139,8 @@ const ProductForm = ({ product, isEditing = false }: ProductFormProps) => {
       conservas: "Conservas",
       doces: "Doces",
       bebidas: "Bebidas",
+      racoes: "Rações para Pets",
+      organicos_animais: "Produtos Orgânicos Animais",
       outros: "Outros"
     };
     
@@ -200,16 +240,64 @@ const ProductForm = ({ product, isEditing = false }: ProductFormProps) => {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="imageUrl">URL da Imagem</Label>
-            <Input
-              id="imageUrl"
-              value={imageUrl}
-              onChange={(e) => setImageUrl(e.target.value)}
-              placeholder="URL da imagem do produto"
-            />
-            <p className="text-xs text-gray-500">
-              Deixe o campo padrão se não tiver uma imagem específica.
-            </p>
+            <Label>Imagem do Produto</Label>
+            
+            {/* Image preview */}
+            {previewUrl ? (
+              <div className="mb-4 border rounded-md p-2">
+                <img 
+                  src={previewUrl} 
+                  alt="Preview" 
+                  className="h-48 w-full object-contain bg-gray-50"
+                />
+              </div>
+            ) : (
+              <div className="mb-4 border rounded-md p-2 bg-gray-50 flex items-center justify-center h-48">
+                <Image className="h-16 w-16 text-gray-300" />
+              </div>
+            )}
+            
+            {/* Image upload button */}
+            <div className="flex flex-col gap-2">
+              <input
+                ref={fileInputRef}
+                type="file"
+                id="image-upload"
+                className="hidden"
+                accept="image/*"
+                onChange={handleImageUpload}
+              />
+              <Button 
+                type="button" 
+                variant="outline"
+                onClick={triggerFileInput}
+                className="flex items-center gap-2"
+              >
+                <Upload className="h-4 w-4" />
+                Escolher Imagem Local
+              </Button>
+              <p className="text-xs text-gray-500">
+                Escolha uma imagem do seu dispositivo ou deixe em branco para usar uma URL.
+              </p>
+            </div>
+            
+            {/* URL input as alternative */}
+            <div className="mt-2">
+              <Label htmlFor="imageUrl">Ou insira uma URL da imagem</Label>
+              <Input
+                id="imageUrl"
+                value={imageUrl}
+                onChange={(e) => {
+                  setImageUrl(e.target.value);
+                  // If URL is provided, clear local image
+                  if (e.target.value) {
+                    setLocalImage(null);
+                    setPreviewUrl(e.target.value);
+                  }
+                }}
+                placeholder="URL da imagem do produto"
+              />
+            </div>
           </div>
         </form>
       </CardContent>

@@ -59,7 +59,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Feijão Caseiro",
     description: "Feijão caseiro produzido no sítio.",
     price: 8.90,
-    imageUrl: "https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?q=80&w=600&auto=format&fit=crop",
     category: "graos",
     stock: 25,
     unit: "kg"
@@ -69,7 +69,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Doce de Leite Caseiro",
     description: "Doce de leite feito pela Dona Lourdes.",
     price: 12.00,
-    imageUrl: "https://images.unsplash.com/photo-1589985270958-e74e6ef69ef0?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1493962853295-0fd70327578a?q=80&w=600&auto=format&fit=crop",
     category: "doces",
     stock: 8,
     unit: "pote 250g"
@@ -99,7 +99,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Ração Natural para Gatos",
     description: "Ração natural sem conservantes para gatos, promove saúde e pelagem brilhante.",
     price: 75.50,
-    imageUrl: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?q=80&w=600&auto=format&fit=crop",
     category: "racoes",
     stock: 25,
     unit: "pacote 5kg"
