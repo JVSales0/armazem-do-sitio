@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -15,6 +16,22 @@ export const Header = () => {
   const { unreadCount } = useNotifications();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Adicionar evento de scroll para detectar quando a página é rolada
+  useState(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrolled]);
 
   const nav = [
     { name: "Início", href: "/" },
@@ -28,9 +45,9 @@ export const Header = () => {
   };
 
   return (
-    <header className="relative bg-transparent z-20">
+    <header className={`${scrolled ? 'fixed top-0 left-0 right-0 shadow-md' : 'relative'} bg-transparent z-40 transition-all duration-300`}>
       {/* Header background image with gradient overlay */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-white/95 dark:from-gray-900/95 to-white/80 dark:to-gray-900/80 -z-10"></div>
+      <div className={`absolute inset-0 w-full h-full ${scrolled ? 'bg-white/95 dark:bg-gray-900/95' : 'bg-gradient-to-b from-white/95 dark:from-gray-900/95 to-white/80 dark:to-gray-900/80'} -z-10`}></div>
       <div 
         className="absolute inset-0 w-full h-full -z-20 bg-cover bg-center" 
         style={{ backgroundImage: 'url("/lovable-uploads/50f5adb4-3361-4d85-bdcd-bfc11e4d384c.png")' }}
