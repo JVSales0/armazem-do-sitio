@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useCart } from "@/contexts/CartContext";
@@ -19,7 +19,7 @@ export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   // Adicionar evento de scroll para detectar quando a página é rolada
-  useState(() => {
+  useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
       if (isScrolled !== scrolled) {
