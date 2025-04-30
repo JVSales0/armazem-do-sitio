@@ -68,8 +68,8 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/2">
               <img
-                src="/placeholder.svg"
-                alt="Dona Lourdes no sítio"
+                src="/lovable-uploads/0813ccd0-fd7c-4a15-8f3b-b95c541eea7f.png"
+                alt="Sítio da Dona Lourdes"
                 className="rounded-lg shadow-md"
               />
             </div>

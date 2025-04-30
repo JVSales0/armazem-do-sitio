@@ -10,7 +10,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div>
             <img
-              src="/placeholder.svg"
+              src="/lovable-uploads/0813ccd0-fd7c-4a15-8f3b-b95c541eea7f.png"
               alt="Sítio da Dona Lourdes"
               className="rounded-lg shadow-md w-full h-auto"
             />
@@ -66,7 +66,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
             <div className="md:w-1/4">
               <img
-                src="/placeholder.svg"
+                src="/lovable-uploads/97376c92-80a7-4dc1-a6c5-f63c348f63be.png"
                 alt="Dona Lourdes"
                 className="rounded-full w-40 h-40 object-cover mx-auto"
               />
