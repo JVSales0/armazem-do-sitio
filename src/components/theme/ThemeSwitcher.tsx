@@ -30,9 +30,9 @@ const ThemeSwitcher = () => {
         checked={isDarkMode}
         onCheckedChange={toggleTheme}
         aria-label="Alternar tema"
-        className={isDarkMode ? "bg-primary" : ""}
+        className={`${isDarkMode ? "data-[state=checked]:bg-site-green" : ""}`}
       />
-      <Moon className={`h-5 w-5 ${isDarkMode ? 'text-primary' : 'text-gray-600'}`} />
+      <Moon className={`h-5 w-5 ${isDarkMode ? 'text-site-green' : 'text-gray-600'}`} />
     </div>
   );
 };

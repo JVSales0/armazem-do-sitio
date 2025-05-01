@@ -46,42 +46,42 @@
   }
 
   .dark {
-    --background: 120 10% 5%; /* Near black with slight green tint */
-    --foreground: 120 20% 90%; /* Light green-white text */
+    --background: 120 10% 10%; /* Slightly greenish dark background */
+    --foreground: 120 15% 95%; /* Light green-white text for better contrast */
 
-    --card: 120 10% 7%; /* Very dark green-black */
-    --card-foreground: 120 20% 90%;
+    --card: 120 10% 12%; /* Very dark green-black with better contrast */
+    --card-foreground: 120 15% 95%;
 
-    --popover: 120 10% 5%;
-    --popover-foreground: 120 20% 90%;
+    --popover: 120 10% 12%;
+    --popover-foreground: 120 15% 95%;
 
-    --primary: 122 39% 40%; /* Darker version of the main green */
-    --primary-foreground: 0 0% 98%;
+    --primary: 122 39% 45%; /* Slightly darker but vibrant green */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 120 15% 15%; /* Dark green */
-    --secondary-foreground: 120 20% 90%;
+    --secondary: 120 15% 20%; /* Dark green with better visibility */
+    --secondary-foreground: 120 30% 90%;
 
-    --muted: 120 15% 15%;
-    --muted-foreground: 120 10% 70%;
+    --muted: 120 15% 20%;
+    --muted-foreground: 120 10% 80%;
 
-    --accent: 120 15% 15%;
-    --accent-foreground: 120 20% 90%;
+    --accent: 120 15% 20%;
+    --accent-foreground: 120 20% 95%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 40.6%; /* More visible destructive color */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 120 15% 15%;
-    --input: 120 15% 15%;
-    --ring: 122 39% 40%;
+    --border: 120 15% 25%; /* More visible border */
+    --input: 120 15% 25%;
+    --ring: 122 39% 55%; /* Brighter ring for better focus visibility */
     
-    --sidebar-background: 120 10% 7%;
-    --sidebar-foreground: 120 20% 90%;
-    --sidebar-primary: 122 39% 40%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 120 15% 15%;
-    --sidebar-accent-foreground: 120 20% 90%;
-    --sidebar-border: 120 15% 15%;
-    --sidebar-ring: 122 39% 40%;
+    --sidebar-background: 120 10% 12%;
+    --sidebar-foreground: 120 15% 95%;
+    --sidebar-primary: 122 39% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 15% 20%;
+    --sidebar-accent-foreground: 120 20% 95%;
+    --sidebar-border: 120 15% 25%;
+    --sidebar-ring: 122 39% 55%;
   }
 }
 
@@ -112,6 +112,11 @@
   button, a.btn {
     @apply text-base md:text-lg py-2 px-4;
   }
+  
+  /* Better contrast for links in dark mode */
+  .dark a:not(.btn) {
+    @apply hover:text-site-green-light transition-colors;
+  }
 }
 
 /* Custom utility classes */
@@ -122,5 +127,18 @@
   
   .card-product {
     @apply bg-white dark:bg-secondary rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-200;
+  }
+  
+  /* Dark mode specific utility classes */
+  .dark-elevated {
+    @apply dark:bg-dark-bg-secondary dark:shadow-lg dark:shadow-black/30;
+  }
+  
+  .dark-text-high-contrast {
+    @apply dark:text-dark-text-primary;
+  }
+  
+  .dark-border {
+    @apply dark:border-gray-700;
   }
 }

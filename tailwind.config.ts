@@ -69,7 +69,13 @@ export default {
 					DEFAULT: '#4caf50', // Medium green for buttons and accents
 					dark: '#388e3c', // Darker green for hover states
 				},
-				'site-green-light': '#a5d6a7' // Lighter green for text in dark mode
+				'site-green-light': '#a5d6a7', // Lighter green for text in dark mode
+				'dark': {
+					'bg-primary': '#121212',   // Dark background primary
+					'bg-secondary': '#1e1e1e', // Dark background secondary
+					'text-primary': '#e0e0e0', // Light text for dark mode
+					'text-secondary': '#a0a0a0' // Secondary text for dark mode
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
