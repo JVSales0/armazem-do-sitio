@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useCart } from "@/contexts/CartContext";
 import { useNotifications } from "@/contexts/NotificationContext";
-import { ShoppingCart, Bell, Menu, X, User, LogIn } from "lucide-react";
+import { ShoppingCart, Bell, Menu, X, User, LogIn, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -44,6 +43,9 @@ export const Header = () => {
     return location.pathname === path;
   };
 
+  // Verificar se o usuário é Dona Lourdes (admin com ID 1)
+  const isDona = user?.id === "1" && user?.role === "admin";
+
   return (
     <header className={`${scrolled ? 'fixed top-0 left-0 right-0 shadow-md' : 'relative'} bg-transparent z-40 transition-all duration-300`}>
       {/* Header background image with gradient overlay */}
@@ -79,6 +81,19 @@ export const Header = () => {
 
           {/* User, Cart, Notifications, Theme */}
           <div className="flex items-center space-x-4 relative z-10">
+            {/* Botão especial para Dona Lourdes */}
+            {isDona && (
+              <Link to="/admin/dashboard" className="hidden md:block">
+                <Button 
+                  variant="outline" 
+                  className="bg-site-green text-white hover:bg-site-green-dark border-site-green flex items-center space-x-2"
+                >
+                  <LayoutDashboard className="h-5 w-5" />
+                  <span>Painel de Vendas</span>
+                </Button>
+              </Link>
+            )}
+            
             {/* Theme Switcher */}
             <div className="hidden sm:block">
               <ThemeSwitcher />
@@ -176,6 +191,18 @@ export const Header = () => {
                           {item.name}
                         </Link>
                       ))}
+                      
+                      {/* Botão Dona Lourdes no menu mobile */}
+                      {isDona && (
+                        <Link
+                          to="/admin/dashboard"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="py-3 px-4 text-lg mt-2 bg-site-green text-white font-medium flex items-center space-x-2"
+                        >
+                          <LayoutDashboard className="h-5 w-5" />
+                          <span>Painel de Vendas</span>
+                        </Link>
+                      )}
                     </nav>
 
                     {/* Theme Switcher in Mobile Menu */}
