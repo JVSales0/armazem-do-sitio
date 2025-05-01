@@ -22,6 +22,7 @@ import NotFound from "./pages/NotFound";
 import AdminProducts from "./pages/admin/AdminProducts";
 import AdminProductAdd from "./pages/admin/AdminProductAdd";
 import AdminProductEdit from "./pages/admin/AdminProductEdit";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
                 <Route path="/notifications" element={<Notifications />} />
                 
                 {/* Admin Routes */}
+                <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="/admin/products" element={<AdminProducts />} />
                 <Route path="/admin/products/add" element={<AdminProductAdd />} />
                 <Route path="/admin/products/edit/:id" element={<AdminProductEdit />} />
