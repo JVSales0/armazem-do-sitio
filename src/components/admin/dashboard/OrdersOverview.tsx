@@ -24,40 +24,55 @@ const OrdersOverview = () => {
   const getOrderStatus = (status: string) => {
     switch (status) {
       case "confirmed":
-        return { color: "bg-blue-100 text-blue-800", text: "Confirmado" };
+        return { 
+          color: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300", 
+          text: "Confirmado" 
+        };
       case "preparing":
-        return { color: "bg-yellow-100 text-yellow-800", text: "Preparando" };
+        return { 
+          color: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300", 
+          text: "Preparando" 
+        };
       case "dispatched":
-        return { color: "bg-purple-100 text-purple-800", text: "Enviado" };
+        return { 
+          color: "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300", 
+          text: "Enviado" 
+        };
       case "delivered":
-        return { color: "bg-green-100 text-green-800", text: "Entregue" };
+        return { 
+          color: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300", 
+          text: "Entregue" 
+        };
       default:
-        return { color: "bg-gray-100 text-gray-800", text: status };
+        return { 
+          color: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300", 
+          text: status 
+        };
     }
   };
 
   return (
     <div>
-      <div className="rounded-md border">
+      <div className="rounded-md border dark:border-gray-700">
         <Table>
           <TableHeader>
-            <TableRow>
-              <TableHead>Pedido</TableHead>
-              <TableHead>Cliente</TableHead>
-              <TableHead className="hidden md:table-cell">Data</TableHead>
-              <TableHead>Valor</TableHead>
-              <TableHead>Status</TableHead>
+            <TableRow className="dark:border-gray-700 dark:bg-dark-bg-secondary">
+              <TableHead className="dark:text-gray-300">Pedido</TableHead>
+              <TableHead className="dark:text-gray-300">Cliente</TableHead>
+              <TableHead className="hidden md:table-cell dark:text-gray-300">Data</TableHead>
+              <TableHead className="dark:text-gray-300">Valor</TableHead>
+              <TableHead className="dark:text-gray-300">Status</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {recentOrders.map((order) => {
               const status = getOrderStatus(order.status);
               return (
-                <TableRow key={order.id}>
-                  <TableCell className="font-medium">{order.id}</TableCell>
-                  <TableCell>{order.customer}</TableCell>
-                  <TableCell className="hidden md:table-cell">{formatDate(order.date)}</TableCell>
-                  <TableCell>{formatCurrency(order.total)}</TableCell>
+                <TableRow key={order.id} className="dark:border-gray-700 dark:hover:bg-dark-bg-secondary/50">
+                  <TableCell className="font-medium dark:text-white">{order.id}</TableCell>
+                  <TableCell className="dark:text-gray-300">{order.customer}</TableCell>
+                  <TableCell className="hidden md:table-cell dark:text-gray-300">{formatDate(order.date)}</TableCell>
+                  <TableCell className="dark:text-white">{formatCurrency(order.total)}</TableCell>
                   <TableCell>
                     <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${status.color}`}>
                       {status.text}

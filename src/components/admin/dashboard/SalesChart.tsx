@@ -34,7 +34,10 @@ const salesData = [
 const chartConfig = {
   sales: {
     label: "Vendas (R$)",
-    color: "#22c55e", // Verde
+    theme: {
+      light: "#22c55e", // Verde para modo claro
+      dark: "#4caf50", // Verde para modo escuro
+    },
   },
   data: {
     label: "Dados",
@@ -51,6 +54,7 @@ const SalesChart = () => {
           size="sm"
           variant={chartType === "area" ? "default" : "outline"}
           onClick={() => setChartType("area")}
+          className="dark:border-gray-700 dark:text-white"
         >
           Área
         </Button>
@@ -58,6 +62,7 @@ const SalesChart = () => {
           size="sm"
           variant={chartType === "bar" ? "default" : "outline"}
           onClick={() => setChartType("bar")}
+          className="dark:border-gray-700 dark:text-white"
         >
           Barras
         </Button>
@@ -65,20 +70,22 @@ const SalesChart = () => {
 
       <ChartContainer
         config={chartConfig}
-        className="aspect-[4/3] w-full"
+        className="aspect-[4/3] w-full dark:text-white"
       >
         {chartType === "area" ? (
           <AreaChart data={salesData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray="3 3" className="dark:stroke-gray-700" />
             <XAxis 
               dataKey="day" 
               tickLine={false}
               axisLine={false}
+              className="dark:text-gray-300"
             />
             <YAxis 
               tickLine={false}
               axisLine={false}
               tickFormatter={(value) => `R$${value}`}
+              className="dark:text-gray-300"
             />
             <ChartTooltip
               content={({ active, payload }) => {
@@ -86,11 +93,11 @@ const SalesChart = () => {
                   return (
                     <ChartTooltipContent
                       indicator="line"
-                      className="border-none bg-background/80 backdrop-blur-sm"
+                      className="border-none dark:bg-dark-bg-secondary dark:text-white bg-background/80 backdrop-blur-sm"
                       payload={payload}
                       nameKey="day"
                       formatter={(value, name, entry) => (
-                        <span className="font-mono">
+                        <span className="font-mono dark:text-white">
                           R$ {value.toLocaleString("pt-BR")}
                         </span>
                       )}
@@ -103,24 +110,26 @@ const SalesChart = () => {
             <Area
               type="monotone"
               dataKey="sales"
-              stroke="#22c55e"
-              fill="#22c55e"
+              stroke="#4caf50"
+              fill="#4caf50"
               strokeWidth={2}
               fillOpacity={0.2}
             />
           </AreaChart>
         ) : (
           <BarChart data={salesData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} className="dark:stroke-gray-700" />
             <XAxis 
               dataKey="day" 
               tickLine={false}
               axisLine={false}
+              className="dark:text-gray-300"
             />
             <YAxis 
               tickLine={false}
               axisLine={false}
               tickFormatter={(value) => `R$${value}`}
+              className="dark:text-gray-300"
             />
             <ChartTooltip
               content={({ active, payload }) => {
@@ -128,11 +137,11 @@ const SalesChart = () => {
                   return (
                     <ChartTooltipContent
                       indicator="line"
-                      className="border-none bg-background/80 backdrop-blur-sm"
+                      className="border-none dark:bg-dark-bg-secondary dark:text-white bg-background/80 backdrop-blur-sm"
                       payload={payload}
                       nameKey="day"
                       formatter={(value, name, entry) => (
-                        <span className="font-mono">
+                        <span className="font-mono dark:text-white">
                           R$ {value.toLocaleString("pt-BR")}
                         </span>
                       )}
@@ -144,8 +153,9 @@ const SalesChart = () => {
             />
             <Bar 
               dataKey="sales" 
-              fill="#22c55e" 
+              fill="#4caf50" 
               radius={[4, 4, 0, 0]}
+              className="dark:fill-site-green"
             />
           </BarChart>
         )}
