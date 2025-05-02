@@ -12,6 +12,7 @@ type AuthContextType = {
   user: User | null;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
+  register: (name: string, email: string, password: string) => Promise<boolean>;
   isLoading: boolean;
   isAdmin: boolean;
 };
@@ -39,13 +40,21 @@ const MOCK_USERS = [
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [mockUsers, setMockUsers] = useState(MOCK_USERS);
 
   useEffect(() => {
     // Check for stored user on load
     const storedUser = localStorage.getItem("user");
+    const storedMockUsers = localStorage.getItem("mockUsers");
+    
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+    
+    if (storedMockUsers) {
+      setMockUsers(JSON.parse(storedMockUsers));
+    }
+    
     setIsLoading(false);
   }, []);
 
@@ -55,7 +64,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 800));
     
-    const foundUser = MOCK_USERS.find(
+    const foundUser = mockUsers.find(
       (u) => u.email === email && u.password === password
     );
 
@@ -71,6 +80,42 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return false;
   };
 
+  const register = async (name: string, email: string, password: string): Promise<boolean> => {
+    setIsLoading(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Check if email already exists
+    if (mockUsers.some(u => u.email === email)) {
+      setIsLoading(false);
+      return false;
+    }
+    
+    // Create new user
+    const newUser = {
+      id: `customer_${Date.now().toString()}`,
+      name,
+      email,
+      password,
+      role: "customer" as const,
+    };
+    
+    const updatedUsers = [...mockUsers, newUser];
+    
+    // Update mock users
+    setMockUsers(updatedUsers);
+    localStorage.setItem("mockUsers", JSON.stringify(updatedUsers));
+    
+    // Auto login
+    const { password: _, ...userWithoutPassword } = newUser;
+    setUser(userWithoutPassword);
+    localStorage.setItem("user", JSON.stringify(userWithoutPassword));
+    
+    setIsLoading(false);
+    return true;
+  };
+
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
@@ -80,7 +125,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const isAdmin = user?.role === "admin" || user?.role === "staff";
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isLoading, isAdmin }}>
+    <AuthContext.Provider value={{ user, login, logout, register, isLoading, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );

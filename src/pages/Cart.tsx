@@ -4,23 +4,30 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, QrCode, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
 import CartItem from "@/components/cart/CartItem";
 import { formatCurrency } from "@/lib/utils";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useNotifications } from "@/contexts/NotificationContext";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PixQRCode from "@/components/payment/PixQRCode";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Cart = () => {
   const { items, totalItems, totalPrice, clearCart, checkoutViaWhatsApp } = useCart();
   const { toast } = useToast();
   const { addNotification } = useNotifications();
+  const { user } = useAuth();
   
   // WhatsApp number for checkout
   const [phoneNumber, setPhoneNumber] = useState("5511987654321"); // Default phone number
   
-  const handleCheckout = () => {
+  // Payment tab selection
+  const [paymentTab, setPaymentTab] = useState<string>("whatsapp");
+  
+  const handleWhatsAppCheckout = () => {
     if (items.length === 0) {
       toast({
         title: "Carrinho vazio",
@@ -119,7 +126,7 @@ const Cart = () => {
               </Card>
             </div>
 
-            {/* Order summary */}
+            {/* Order summary and payment options */}
             <div>
               <Card>
                 <CardHeader>
@@ -139,36 +146,92 @@ const Cart = () => {
                       <span>Total</span>
                       <span className="text-site-green">{formatCurrency(totalPrice)}</span>
                     </div>
-                    <p className="text-sm text-gray-500 mt-2">
-                      * A forma de pagamento e taxa de entrega serão combinadas pelo WhatsApp.
-                    </p>
                   </div>
 
-                  {/* WhatsApp config (normally would be in site settings, but for demo) */}
+                  {/* Payment options */}
                   <div className="mt-6">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Número do WhatsApp da Loja
-                    </label>
-                    <Input
-                      type="tel"
-                      value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
-                      className="mb-1"
-                    />
-                    <p className="text-xs text-gray-500">
-                      Formato: 5511987654321 (país+DDD+número)
-                    </p>
+                    <h3 className="text-lg font-medium mb-4">Forma de Pagamento</h3>
+                    
+                    {!user ? (
+                      <div className="text-center p-4 border border-dashed border-gray-300 rounded-md">
+                        <p className="mb-4 text-gray-600">
+                          Crie uma conta ou faça login para acessar todas as opções de pagamento
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-2 justify-center">
+                          <Link to="/login">
+                            <Button variant="outline" className="w-full sm:w-auto">
+                              Fazer Login
+                            </Button>
+                          </Link>
+                          <Link to="/register">
+                            <Button className="w-full sm:w-auto bg-site-green hover:bg-site-green-dark">
+                              Criar Conta
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    ) : (
+                      <Tabs 
+                        defaultValue="whatsapp" 
+                        value={paymentTab}
+                        onValueChange={setPaymentTab}
+                        className="w-full"
+                      >
+                        <TabsList className="grid w-full grid-cols-2">
+                          <TabsTrigger value="whatsapp">WhatsApp</TabsTrigger>
+                          <TabsTrigger value="pix">PIX</TabsTrigger>
+                        </TabsList>
+                        
+                        <TabsContent value="whatsapp" className="pt-4">
+                          <div className="mt-2 mb-4">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                              Número do WhatsApp da Loja
+                            </label>
+                            <Input
+                              type="tel"
+                              value={phoneNumber}
+                              onChange={(e) => setPhoneNumber(e.target.value)}
+                              className="mb-1"
+                            />
+                            <p className="text-xs text-gray-500">
+                              Formato: 5511987654321 (país+DDD+número)
+                            </p>
+                          </div>
+                          
+                          <Button 
+                            onClick={handleWhatsAppCheckout}
+                            className="w-full bg-site-green hover:bg-site-green-dark py-6 mt-4"
+                          >
+                            Finalizar Compra via WhatsApp
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        </TabsContent>
+                        
+                        <TabsContent value="pix" className="pt-4">
+                          <PixQRCode
+                            value={totalPrice}
+                            description="Pagamento Armazém do Sítio"
+                            pixKey="12345678901"
+                            merchantName="ARMAZEMDOSITIO"
+                            city="SAO PAULO"
+                          />
+                        </TabsContent>
+                      </Tabs>
+                    )}
+                    
                   </div>
                 </CardContent>
-                <CardFooter>
-                  <Button 
-                    onClick={handleCheckout}
-                    className="w-full bg-site-green hover:bg-site-green-dark py-6"
-                  >
-                    Finalizar Compra via WhatsApp
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardFooter>
+                {!user && (
+                  <CardFooter>
+                    <Button 
+                      onClick={handleWhatsAppCheckout}
+                      className="w-full bg-site-green hover:bg-site-green-dark py-6"
+                    >
+                      Finalizar Compra via WhatsApp
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardFooter>
+                )}
               </Card>
             </div>
           </div>
