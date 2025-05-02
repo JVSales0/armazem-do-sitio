@@ -144,7 +144,7 @@ export const Header = () => {
               </div>
             ) : (
               <div className="hidden md:block">
-                <Link to="/login">
+                <Link to="/register">
                   <Button className="bg-site-green hover:bg-site-green-dark flex items-center space-x-2">
                     <LogIn className="h-5 w-5" />
                     <span>Entrar</span>
@@ -240,7 +240,7 @@ export const Header = () => {
                           </Button>
                         </div>
                       ) : (
-                        <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
+                        <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
                           <Button className="w-full bg-site-green hover:bg-site-green-dark">
                             <LogIn className="h-5 w-5 mr-2" />
                             <span>Entrar</span>
