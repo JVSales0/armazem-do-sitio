@@ -8,6 +8,11 @@ type User = {
   role: "admin" | "staff" | "customer";
 };
 
+// Creating a type that includes the password field for mock users
+type MockUser = User & {
+  password: string;
+};
+
 type AuthContextType = {
   user: User | null;
   login: (email: string, password: string) => Promise<boolean>;
@@ -19,28 +24,28 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Mock users for demo purposes
-const MOCK_USERS = [
+// Mock users for demo purposes - now explicitly typed as MockUser[]
+const MOCK_USERS: MockUser[] = [
   {
     id: "1",
     name: "Dona Lourdes",
     email: "lourdes@armazemdositio.com",
     password: "admin123",
-    role: "admin" as const,
+    role: "admin",
   },
   {
     id: "2",
     name: "Funcionário",
     email: "staff@armazemdositio.com",
     password: "staff123",
-    role: "staff" as const,
+    role: "staff",
   },
 ];
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [mockUsers, setMockUsers] = useState(MOCK_USERS);
+  const [mockUsers, setMockUsers] = useState<MockUser[]>(MOCK_USERS);
 
   useEffect(() => {
     // Check for stored user on load
@@ -93,12 +98,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
     
     // Create new user
-    const newUser = {
+    const newUser: MockUser = {
       id: `customer_${Date.now().toString()}`,
       name,
       email,
       password,
-      role: "customer" as const,
+      role: "customer",
     };
     
     const updatedUsers = [...mockUsers, newUser];
