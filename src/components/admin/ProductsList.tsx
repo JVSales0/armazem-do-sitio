@@ -86,6 +86,10 @@ const ProductsList = () => {
       conservas: "Conservas",
       doces: "Doces",
       bebidas: "Bebidas",
+      carnes: "Carnes",
+      laticinios: "Laticínios",
+      temperos: "Temperos",
+      organicos: "Orgânicos",
       outros: "Outros"
     };
     

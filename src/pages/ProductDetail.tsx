@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -49,8 +50,10 @@ const ProductDetail = () => {
       conservas: "Conservas",
       doces: "Doces",
       bebidas: "Bebidas",
-      racoes: "Rações para Pets",
-      organicos_animais: "Produtos Orgânicos Animais",
+      carnes: "Carnes",
+      laticinios: "Laticínios",
+      temperos: "Temperos",
+      organicos: "Orgânicos",
       outros: "Outros"
     };
     

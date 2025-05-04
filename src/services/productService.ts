@@ -1,5 +1,5 @@
 
-import { Product, MOCK_PRODUCTS } from "@/types/product";
+import { Product, getAllMockProducts } from "@/types/product";
 
 // Simulate database with localStorage
 const STORAGE_KEY = "armazem_products";
@@ -7,7 +7,7 @@ const STORAGE_KEY = "armazem_products";
 // Initialize localStorage with mock products if empty
 const initializeProducts = (): void => {
   if (!localStorage.getItem(STORAGE_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(MOCK_PRODUCTS));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(getAllMockProducts()));
   }
 };
 

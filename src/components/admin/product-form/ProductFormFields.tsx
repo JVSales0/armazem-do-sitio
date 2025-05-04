@@ -42,8 +42,10 @@ const ProductFormFields = ({
     "conservas", 
     "doces", 
     "bebidas", 
-    "racoes",
-    "organicos_animais",
+    "carnes",
+    "laticinios",
+    "temperos",
+    "organicos",
     "outros"
   ];
 
@@ -56,8 +58,10 @@ const ProductFormFields = ({
       conservas: "Conservas",
       doces: "Doces",
       bebidas: "Bebidas",
-      racoes: "Rações para Pets",
-      organicos_animais: "Produtos Orgânicos Animais",
+      carnes: "Carnes",
+      laticinios: "Laticínios",
+      temperos: "Temperos",
+      organicos: "Orgânicos",
       outros: "Outros"
     };
     
