@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -68,6 +69,45 @@ const Cart = () => {
         message: `Seu pedido #${orderId} saiu para entrega.`,
       });
     }, 12000);
+  };
+
+  // Handler for manual payment confirmation (new)
+  const handleConfirmPixPayment = () => {
+    if (items.length === 0) {
+      toast({
+        title: "Carrinho vazio",
+        description: "Adicione produtos ao carrinho antes de finalizar a compra.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Generate a random order ID for PIX payment
+    const orderId = `PIX-${Date.now().toString().slice(-6)}`;
+    
+    // Add notification about the PIX payment
+    addNotification({
+      orderId,
+      status: "confirmed",
+      message: `Pagamento PIX de ${formatCurrency(totalPrice)} recebido com sucesso.`,
+    });
+    
+    // Clear the cart after payment
+    clearCart();
+    
+    toast({
+      title: "Pagamento confirmado",
+      description: "Seu pagamento PIX foi confirmado. Obrigado pela compra!",
+    });
+    
+    // Demo: Add more notifications for this order over time
+    setTimeout(() => {
+      addNotification({
+        orderId,
+        status: "preparing",
+        message: `Seu pedido #${orderId} está sendo preparado.`,
+      });
+    }, 6000);
   };
 
   return (
@@ -215,6 +255,13 @@ const Cart = () => {
                             merchantName="ARMAZEMDOSITIO"
                             city="SAO PAULO"
                           />
+                          <Button 
+                            onClick={handleConfirmPixPayment}
+                            className="w-full bg-site-green hover:bg-site-green-dark py-4 mt-4"
+                          >
+                            Confirmar Pagamento PIX
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
                         </TabsContent>
                       </Tabs>
                     )}

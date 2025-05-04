@@ -47,15 +47,7 @@ const PixQRCode = ({ value, description = "", pixKey, merchantName, city = "CIDA
         const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(fullPayload)}`;
         setQrCodeImage(qrImageUrl);
 
-        // Simulate payment processing flow
-        setTimeout(() => {
-          const orderId = `PS-${Date.now().toString().slice(-6)}`;
-          addNotification({
-            orderId,
-            status: "confirmed",
-            message: `Pagamento PIX de R$ ${value.toFixed(2)} recebido com sucesso.`,
-          });
-        }, 5000);
+        // Removed the automatic payment notification simulation that was here
       } catch (error) {
         console.error("Erro ao gerar QR code PIX:", error);
         toast({
