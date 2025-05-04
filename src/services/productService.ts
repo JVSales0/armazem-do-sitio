@@ -7,7 +7,12 @@ const STORAGE_KEY = "armazem_products";
 // Initialize localStorage with mock products if empty
 const initializeProducts = (): void => {
   if (!localStorage.getItem(STORAGE_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(getAllMockProducts()));
+    // Convert images to empty strings
+    const mockProducts = getAllMockProducts();
+    mockProducts.forEach(product => {
+      product.imageUrl = ""; // Clear all images initially
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(mockProducts));
   }
 };
 

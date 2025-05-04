@@ -23,20 +23,22 @@ const ImageUpload = ({ initialImageUrl, onImageChange }: ImageUploadProps) => {
     if (file) {
       setLocalImage(file);
       
-      // Create a preview URL for the uploaded image
-      const objectURL = URL.createObjectURL(file);
-      setPreviewUrl(objectURL);
-      
-      // Clear the remote imageUrl since we're using a local image
-      setImageUrl("");
-      
-      // Notify parent component
-      onImageChange("", file, objectURL);
-      
-      toast({
-        title: "Imagem selecionada",
-        description: `${file.name} foi selecionada como imagem do produto.`,
-      });
+      // Convert the image to a data URL (base64)
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        setPreviewUrl(base64String);
+        setImageUrl("");
+        
+        // Notify parent component
+        onImageChange(base64String, file, base64String);
+        
+        toast({
+          title: "Imagem selecionada",
+          description: `${file.name} foi selecionada como imagem do produto.`,
+        });
+      };
+      reader.readAsDataURL(file);
     }
   };
   

@@ -11,7 +11,7 @@ import { getProductById } from "@/services/productService";
 import { useCart } from "@/contexts/CartContext";
 import { Product } from "@/types/product";
 import { formatCurrency } from "@/lib/utils";
-import { Plus, Minus, ArrowLeft, ShoppingCart } from "lucide-react";
+import { Plus, Minus, ArrowLeft, ShoppingCart, Image } from "lucide-react";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -106,15 +106,32 @@ const ProductDetail = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Product image */}
               <div className="p-6 flex items-center justify-center bg-white">
-                <img
-                  src={product.imageUrl}
-                  alt={product.name}
-                  className="max-h-80 object-contain"
-                  onError={(e) => {
-                    // Fallback if image fails to load
-                    (e.target as HTMLImageElement).src = "/placeholder.svg";
-                  }}
-                />
+                {product.imageUrl ? (
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="max-h-80 object-contain"
+                    onError={(e) => {
+                      // Show placeholder if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null; // Prevent infinite loop
+                      target.style.display = "none"; // Hide img element
+                      
+                      // Create and append icon element
+                      const parent = target.parentElement;
+                      if (parent) {
+                        const icon = document.createElement("div");
+                        icon.className = "flex items-center justify-center h-80 w-full";
+                        icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>`;
+                        parent.appendChild(icon);
+                      }
+                    }}
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-80 w-full">
+                    <Image className="h-24 w-24 text-gray-300" />
+                  </div>
+                )}
               </div>
 
               {/* Product details */}

@@ -18,7 +18,7 @@ const ProductForm = ({ product, isEditing = false }: ProductFormProps) => {
   const [name, setName] = useState(product?.name || "");
   const [description, setDescription] = useState(product?.description || "");
   const [price, setPrice] = useState(product?.price.toString() || "");
-  const [imageUrl, setImageUrl] = useState(product?.imageUrl || "/placeholder.svg");
+  const [imageUrl, setImageUrl] = useState(product?.imageUrl || "");
   const [category, setCategory] = useState<ProductCategory>(product?.category || "outros");
   const [stock, setStock] = useState(product?.stock.toString() || "0");
   const [unit, setUnit] = useState(product?.unit || "unidade");
@@ -54,14 +54,8 @@ const ProductForm = ({ product, isEditing = false }: ProductFormProps) => {
     setIsSubmitting(true);
     
     try {
-      // Process the image if there's a local upload
-      let finalImageUrl = imageUrl;
-      
-      if (localImage) {
-        // In a real app with backend, you'd upload this to a server
-        // Since we're using local storage, we'll use the local data URL
-        finalImageUrl = previewUrl || "";
-      }
+      // Use the image URL directly (which could be a base64 data URL)
+      const finalImageUrl = imageUrl || previewUrl || "";
       
       const productData = {
         id: product?.id || "",
@@ -125,7 +119,7 @@ const ProductForm = ({ product, isEditing = false }: ProductFormProps) => {
           />
           
           <ImageUpload
-            initialImageUrl={product?.imageUrl || "/placeholder.svg"}
+            initialImageUrl={product?.imageUrl || ""}
             onImageChange={handleImageChange}
           />
         </form>
