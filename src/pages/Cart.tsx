@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -21,8 +20,8 @@ const Cart = () => {
   const { addNotification } = useNotifications();
   const { user } = useAuth();
   
-  // WhatsApp number for checkout
-  const [phoneNumber, setPhoneNumber] = useState("5511987654321"); // Default phone number
+  // WhatsApp number for checkout - updated to the new number
+  const [phoneNumber, setPhoneNumber] = useState("5545988249785");
   
   // Payment tab selection
   const [paymentTab, setPaymentTab] = useState<string>("whatsapp");
@@ -192,9 +191,10 @@ const Cart = () => {
                               value={phoneNumber}
                               onChange={(e) => setPhoneNumber(e.target.value)}
                               className="mb-1"
+                              readOnly
                             />
                             <p className="text-xs text-gray-500">
-                              Formato: 5511987654321 (país+DDD+número)
+                              Formato: 5545988249785 (país+DDD+número)
                             </p>
                           </div>
                           

@@ -90,10 +90,10 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <p className="text-gray-700 mb-2">
-                <strong>Endereço:</strong> Sítio da Dona Lourdes, Zona Rural
+                <strong>Endereço:</strong> Sítio da Dona Lourdes, Loanda/PR
               </p>
               <p className="text-gray-700 mb-2">
-                <strong>WhatsApp:</strong> (11) 98765-4321
+                <strong>WhatsApp:</strong> (45) 98824-9785
               </p>
               <p className="text-gray-700">
                 <strong>Email:</strong> contato@armazemdositio.com

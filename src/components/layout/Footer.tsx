@@ -48,11 +48,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact section */}
+          {/* Contact section - Updated location and WhatsApp number */}
           <div>
             <h3 className="text-xl font-bold text-site-green dark:text-site-green mb-4">Contato</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-2">Sítio da Dona Lourdes, Zona Rural</p>
-            <p className="text-gray-600 dark:text-gray-300 mb-2">WhatsApp: (11) 98765-4321</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-2">Sítio da Dona Lourdes, Loanda/PR</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-2">WhatsApp: (45) 98824-9785</p>
             <p className="text-gray-600 dark:text-gray-300">Email: contato@armazemdositio.com</p>
           </div>
         </div>
