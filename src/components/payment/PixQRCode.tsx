@@ -14,7 +14,7 @@ interface PixQRCodeProps {
   city?: string;
 }
 
-const PixQRCode = ({ value, description = "", pixKey, merchantName, city = "CIDADE" }: PixQRCodeProps) => {
+const PixQRCode = ({ value, description = "", pixKey, merchantName, city = "LOANDA" }: PixQRCodeProps) => {
   const [qrCodeImage, setQrCodeImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [pixCodeString, setPixCodeString] = useState<string>("");

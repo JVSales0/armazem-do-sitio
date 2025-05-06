@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -253,7 +252,7 @@ const Cart = () => {
                             description="Pagamento Armazém do Sítio"
                             pixKey="12345678901"
                             merchantName="ARMAZEMDOSITIO"
-                            city="SAO PAULO"
+                            city="LOANDA"
                           />
                           <Button 
                             onClick={handleConfirmPixPayment}
