@@ -161,7 +161,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Torresmo",
     description: "Torresmo crocante feito artesanalmente, tempero tradicional.",
     price: 18.90,
-    imageUrl: "https://images.unsplash.com/photo-1587163773982-95bf5bb51e0e?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/da/58/97/da58977eeb4861c1e01a5ae74285e1aa.jpg",
     category: "carnes",
     stock: 10,
     unit: "pacote 300g"
@@ -171,7 +171,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Banha de Porco",
     description: "Banha de porco caipira, produção artesanal.",
     price: 14.50,
-    imageUrl: "https://images.unsplash.com/photo-1613840112693-232966de6188?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/a0/6b/ec/a06bec5fcbbcb81200ba0c114f348e43.jpg",
     category: "organicos",
     stock: 12,
     unit: "pote 500g"
@@ -181,7 +181,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Mamão",
     description: "Mamão maduro, doce e cultivado sem agrotóxicos.",
     price: 7.50,
-    imageUrl: "https://images.unsplash.com/photo-1656424674535-5e83e5947a5e?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/ca/63/3b/ca633bf61dd2039b499c54cc25969d9e.jpg",
     category: "frutas",
     stock: 15,
     unit: "unidade"
@@ -191,7 +191,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Pão Caseiro",
     description: "Pão caseiro feito com fermento natural e farinha orgânica.",
     price: 9.90,
-    imageUrl: "https://images.unsplash.com/photo-1549413468-acc61ce75340?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/d5/11/10/d51110871b760213b629f4c30a9a0a5c.jpg",
     category: "outros",
     stock: 10,
     unit: "unidade 600g"
@@ -221,7 +221,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Batata-Doce",
     description: "Batata-doce orgânica e nutritiva.",
     price: 5.50,
-    imageUrl: "https://images.unsplash.com/photo-1596097635297-5ba21d2b0c39?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/bc/c5/80/bcc580e8f215cb053e956abb695a011c.jpg",
     category: "legumes",
     stock: 25,
     unit: "kg"
