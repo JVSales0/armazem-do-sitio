@@ -7,11 +7,8 @@ const STORAGE_KEY = "armazem_products";
 // Initialize localStorage with mock products if empty
 const initializeProducts = (): void => {
   if (!localStorage.getItem(STORAGE_KEY)) {
-    // Convert images to empty strings
+    // Use the mock products with their original image URLs
     const mockProducts = getAllMockProducts();
-    mockProducts.forEach(product => {
-      product.imageUrl = ""; // Clear all images initially
-    });
     localStorage.setItem(STORAGE_KEY, JSON.stringify(mockProducts));
   }
 };
@@ -88,4 +85,10 @@ export const filterProductsByCategory = (category: string): Product[] => {
   }
   
   return products.filter((p) => p.category === category);
+};
+
+// Reset products in localStorage (for testing purposes or to force reinitialization)
+export const resetProductsData = (): void => {
+  localStorage.removeItem(STORAGE_KEY);
+  initializeProducts();
 };
