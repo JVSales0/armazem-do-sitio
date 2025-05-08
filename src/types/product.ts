@@ -91,7 +91,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Mandioca",
     description: "Mandioca fresca e de qualidade superior, já descascada e higienizada.",
     price: 5.90,
-    imageUrl: "https://images.unsplash.com/photo-1598030304671-5aa1d6bc3867?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/04/4b/a5/044ba527238b5b02f9648a26a266fb6b.jpg",
     category: "legumes",
     stock: 20,
     unit: "kg"
@@ -101,7 +101,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Frango Caipira",
     description: "Frango caipira criado solto, alimentação natural e orgânica.",
     price: 35.50,
-    imageUrl: "https://images.unsplash.com/photo-1501563438969-9fbe7356d86c?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/6f/f2/bd/6ff2bd49d08fc0478086968ee7486d4f.jpg",
     category: "carnes",
     stock: 10,
     unit: "kg"
@@ -111,7 +111,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Ovos de Codorna",
     description: "Ovos de codorna frescos, produção orgânica e natural.",
     price: 8.90,
-    imageUrl: "https://images.unsplash.com/photo-1506976785307-8732e854ad03?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/21/8b/74/218b748a305488cc4e6d6e0700c85aec.jpg",
     category: "organicos",
     stock: 30,
     unit: "dúzia"
@@ -131,7 +131,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Goiabada Caseira",
     description: "Goiabada caseira feita com frutas frescas do sítio e receita tradicional.",
     price: 15.00,
-    imageUrl: "https://images.unsplash.com/photo-1582460747579-2f4eaba93a1c?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/8d/9e/8a/8d9e8a0efabfab12dcf4e6d31255a6fc.jpg",
     category: "doces",
     stock: 12,
     unit: "pote 500g"
@@ -141,7 +141,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Mel Puro",
     description: "Mel puro e natural, coletado de apiário próprio.",
     price: 25.00,
-    imageUrl: "https://images.unsplash.com/photo-1594125674956-61a9b49c8eeb?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/62/77/eb/6277ebb4c09141733ebadf270ab1769e.jpg",
     category: "organicos",
     stock: 15,
     unit: "pote 500g"
@@ -151,7 +151,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Salame Colonial",
     description: "Salame colonial preparado artesanalmente, com temperos naturais.",
     price: 45.00,
-    imageUrl: "https://images.unsplash.com/photo-1600453265830-bacfbad120f1?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/a2/9b/75/a29b754eb920ad480a37de80b42a6d82.jpg",
     category: "carnes",
     stock: 8,
     unit: "unidade 700g"
