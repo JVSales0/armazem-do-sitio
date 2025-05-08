@@ -81,7 +81,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Milho Verde",
     description: "Milho verde fresco, colhido na hora.",
     price: 5.50,
-    imageUrl: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://i.pinimg.com/736x/89/f9/f0/89f9f0ffedba8d99736506554d36c39b.jpg",
     category: "legumes",
     stock: 25,
     unit: "espiga"
