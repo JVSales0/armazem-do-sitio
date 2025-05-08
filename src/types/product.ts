@@ -28,7 +28,7 @@ export interface Product {
 export const MOCK_PRODUCTS: Product[] = [
   {
     id: "1",
-    name: "Alface Orgânica",
+    name: "Alface",
     description: "Alface fresca orgânica colhida no sítio.",
     price: 3.50,
     imageUrl: "https://images.unsplash.com/photo-1506073881649-4e23be3e9ed0?q=80&w=600&auto=format&fit=crop",
@@ -38,7 +38,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: "2",
-    name: "Tomate Orgânico",
+    name: "Tomate",
     description: "Tomates frescos orgânicos colhidos no sítio.",
     price: 5.75,
     imageUrl: "https://images.unsplash.com/photo-1524593166156-312f362cada0?q=80&w=600&auto=format&fit=crop",
@@ -579,6 +579,57 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     category: "organicos",
     stock: 50,
     unit: "dúzia"
+  },
+  // Adding 5 new products
+  {
+    id: "56",
+    name: "Goiabada",
+    description: "Goiabada caseira feita com frutas frescas do sítio, sem conservantes.",
+    price: 14.90,
+    imageUrl: "https://images.unsplash.com/photo-1582460747579-2f4eaba93a1c?q=80&w=600&auto=format&fit=crop",
+    category: "doces",
+    stock: 18,
+    unit: "pote 500g"
+  },
+  {
+    id: "57",
+    name: "Feijão",
+    description: "Feijão fresco cultivado no sítio, colhido no ponto certo.",
+    price: 9.50,
+    imageUrl: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?q=80&w=600&auto=format&fit=crop",
+    category: "graos",
+    stock: 25,
+    unit: "kg"
+  },
+  {
+    id: "58",
+    name: "Suco de Laranja",
+    description: "Suco de laranja natural, feito com frutas frescas colhidas no sítio.",
+    price: 12.00,
+    imageUrl: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=600&auto=format&fit=crop",
+    category: "bebidas",
+    stock: 15,
+    unit: "garrafa 1L"
+  },
+  {
+    id: "59",
+    name: "Doce de Leite",
+    description: "Doce de leite cremoso feito artesanalmente, receita tradicional.",
+    price: 16.50,
+    imageUrl: "https://images.unsplash.com/photo-1661413617929-cbdb09c8dd99?q=80&w=600&auto=format&fit=crop",
+    category: "doces",
+    stock: 20,
+    unit: "pote 400g"
+  },
+  {
+    id: "60",
+    name: "Doce de Mamão",
+    description: "Doce de mamão caseiro, elaborado com frutas frescas e orgânicas do sítio.",
+    price: 15.90,
+    imageUrl: "https://images.unsplash.com/photo-1625488932067-2f3d7ee2c70e?q=80&w=600&auto=format&fit=crop",
+    category: "doces",
+    stock: 15,
+    unit: "pote 350g"
   }
 ];
 
