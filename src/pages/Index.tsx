@@ -1,6 +1,8 @@
+
 import { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import ProductGrid from "@/components/products/ProductGrid";
+import FeaturedProducts from "@/components/products/FeaturedProducts";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -9,12 +11,20 @@ import { Product } from "@/types/product";
 
 const Index = () => {
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
+  const [newProducts, setNewProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Get featured products (increased to 8 to show new products)
+    // Get all products
     const products = getAllProducts();
+    
+    // Featured products (first 8)
     setFeaturedProducts(products.slice(0, 8));
+    
+    // New products (our 5 newly added products - IDs 56-60)
+    const latest = products.filter(p => parseInt(p.id) >= 56 && parseInt(p.id) <= 60);
+    setNewProducts(latest);
+    
     setIsLoading(false);
   }, []);
 
@@ -39,6 +49,32 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* New Products Display Section */}
+      {newProducts.length > 0 && (
+        <section className="py-12 px-4 bg-site-green-light/30">
+          <div className="container mx-auto max-w-5xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-site-green-light mb-8">
+              Novos Produtos!
+            </h2>
+            
+            {isLoading ? (
+              <div className="text-center py-8">Carregando produtos...</div>
+            ) : (
+              <FeaturedProducts products={newProducts} />
+            )}
+            
+            <div className="text-center mt-8">
+              <Link to="/products">
+                <Button variant="outline" className="border-site-green text-site-green hover:bg-site-green hover:text-white">
+                  Ver Todos os Produtos
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Featured Products Section */}
       <section className="py-16 px-4">
