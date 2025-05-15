@@ -1,4 +1,3 @@
-
 export type ProductCategory = 
   | "frutas" 
   | "legumes" 
@@ -61,7 +60,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Morango",
     description: "Morangos frescos e doces, cultivados sem agrotóxicos.",
     price: 8.90,
-    imageUrl: "https://images.unsplash.com/photo-1518635017498-87f514b751ba?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1615218370629-da07db3571a4?q=80&w=600&auto=format&fit=crop",
     category: "frutas",
     stock: 15,
     unit: "bandeja"
@@ -231,7 +230,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Beterraba",
     description: "Beterraba fresca e orgânica, rica em nutrientes.",
     price: 4.50,
-    imageUrl: "https://images.unsplash.com/photo-1593105522160-a9ea9df8d500?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1633383718081-22ac93e3db65?q=80&w=600&auto=format&fit=crop",
     category: "legumes",
     stock: 15,
     unit: "kg"
@@ -241,7 +240,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Rabanete",
     description: "Rabanetes frescos e crocantes.",
     price: 3.90,
-    imageUrl: "https://images.unsplash.com/photo-1583116956990-0d4fa7be9c62?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1584942368913-b98dd9983c7e?q=80&w=600&auto=format&fit=crop",
     category: "legumes",
     stock: 12,
     unit: "maço"
@@ -301,7 +300,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Cheiro Verde",
     description: "Cheiro verde fresco (salsinha e cebolinha).",
     price: 2.50,
-    imageUrl: "https://images.unsplash.com/photo-1526170160160-1a5eb242ab58?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1611105637889-3afd7295bdbf?q=80&w=600&auto=format&fit=crop",
     category: "temperos",
     stock: 20,
     unit: "maço"
@@ -311,7 +310,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Coentro",
     description: "Coentro fresco e aromático.",
     price: 2.50,
-    imageUrl: "https://images.unsplash.com/photo-1560155016-bd4879ae8f21?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1589621316382-008455b857cd?q=80&w=600&auto=format&fit=crop",
     category: "temperos",
     stock: 15,
     unit: "maço"
@@ -321,7 +320,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Berinjela",
     description: "Berinjela fresca e orgânica.",
     price: 5.50,
-    imageUrl: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1632252797479-6f74528138f0?q=80&w=600&auto=format&fit=crop",
     category: "legumes",
     stock: 12,
     unit: "kg"
@@ -335,7 +334,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Alho Poró",
     description: "Alho poró fresco e orgânico.",
     price: 4.90,
-    imageUrl: "https://images.unsplash.com/photo-1628784230353-5bee16e2f005?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1580385589524-7b0e6920ea4e?q=80&w=600&auto=format&fit=crop",
     category: "legumes",
     stock: 15,
     unit: "maço"
@@ -425,7 +424,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Alecrim",
     description: "Alecrim fresco e aromático.",
     price: 3.50,
-    imageUrl: "https://images.unsplash.com/photo-1635752279043-155b5a17da25?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1526857833023-868f4773604d?q=80&w=600&auto=format&fit=crop",
     category: "temperos",
     stock: 15,
     unit: "maço"
@@ -435,7 +434,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Tomilho",
     description: "Tomilho fresco e aromático.",
     price: 3.50,
-    imageUrl: "https://images.unsplash.com/photo-1653647144572-290352064c31?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?q=80&w=600&auto=format&fit=crop",
     category: "temperos",
     stock: 15,
     unit: "maço"
@@ -445,7 +444,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Manjericão",
     description: "Manjericão fresco e aromático.",
     price: 3.50,
-    imageUrl: "https://images.unsplash.com/photo-1565160837249-b3a80beff3bc?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1600717707657-58a0fc8236cb?q=80&w=600&auto=format&fit=crop",
     category: "temperos",
     stock: 15,
     unit: "maço"
@@ -455,7 +454,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Louro",
     description: "Folhas de louro secas.",
     price: 4.50,
-    imageUrl: "https://images.unsplash.com/photo-1599909083851-4a4312d3a331?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1602013596888-27767cfd4a24?q=80&w=600&auto=format&fit=crop",
     category: "temperos",
     stock: 20,
     unit: "pacote 20g"
@@ -465,7 +464,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Hortelã",
     description: "Hortelã fresca e aromática.",
     price: 3.50,
-    imageUrl: "https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1596546704644-eedbf1d61cc2?q=80&w=600&auto=format&fit=crop",
     category: "temperos",
     stock: 15,
     unit: "maço"
@@ -505,7 +504,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Geleia de Morango",
     description: "Geleia de morango caseira, sem conservantes.",
     price: 18.90,
-    imageUrl: "https://images.unsplash.com/photo-1678697494065-0c4f13cc1ebd?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1590166223826-12dee1677420?q=80&w=600&auto=format&fit=crop",
     category: "doces",
     stock: 12,
     unit: "pote 300g"
@@ -515,7 +514,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Conserva de Pepino",
     description: "Conserva de pepino caseira, tempero tradicional.",
     price: 16.50,
-    imageUrl: "https://images.unsplash.com/photo-1607524918408-f225f3292309?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1624551349508-dca232406578?q=80&w=600&auto=format&fit=crop",
     category: "conservas",
     stock: 15,
     unit: "pote 500g"
@@ -525,7 +524,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Filé de Tilápia",
     description: "Filé de tilápia fresco, criação própria.",
     price: 45.00,
-    imageUrl: "https://images.unsplash.com/photo-1574051004519-39f0194bb370?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?q=80&w=600&auto=format&fit=crop",
     category: "carnes",
     stock: 10,
     unit: "kg"
@@ -535,7 +534,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Noz Pecan",
     description: "Noz pecan fresca e crocante.",
     price: 45.00,
-    imageUrl: "https://images.unsplash.com/photo-1604775108692-d387912e1f05?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1621886292650-520dee2b56e2?q=80&w=600&auto=format&fit=crop",
     category: "graos",
     stock: 8,
     unit: "pacote 250g"
@@ -545,7 +544,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Cogumelo Shimeji",
     description: "Cogumelo shimeji fresco e orgânico.",
     price: 18.90,
-    imageUrl: "https://images.unsplash.com/photo-1622472448253-6445d1796123?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1611068661840-9d178b30e81b?q=80&w=600&auto=format&fit=crop",
     category: "legumes",
     stock: 10,
     unit: "pacote 200g"
@@ -555,7 +554,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Garapa Fresca",
     description: "Garapa fresca de cana, sem conservantes.",
     price: 7.50,
-    imageUrl: "https://images.unsplash.com/photo-1588350404192-4a364ead2d49?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?q=80&w=600&auto=format&fit=crop",
     category: "bebidas",
     stock: 15,
     unit: "garrafa 1L"
@@ -565,7 +564,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Açúcar Mascavo",
     description: "Açúcar mascavo natural, produção artesanal.",
     price: 12.00,
-    imageUrl: "https://images.unsplash.com/photo-1584653059740-fb6fb91eeeff?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1581873378331-5510ffc7ac42?q=80&w=600&auto=format&fit=crop",
     category: "outros",
     stock: 20,
     unit: "pacote 500g"
@@ -586,7 +585,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Goiabada",
     description: "Goiabada caseira feita com frutas frescas do sítio, sem conservantes.",
     price: 14.90,
-    imageUrl: "https://images.unsplash.com/photo-1582460747579-2f4eaba93a1c?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1621266633566-8dea092aeccd?q=80&w=600&auto=format&fit=crop",
     category: "doces",
     stock: 18,
     unit: "pote 500g"
@@ -596,7 +595,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Feijão",
     description: "Feijão fresco cultivado no sítio, colhido no ponto certo.",
     price: 9.50,
-    imageUrl: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?q=80&w=600&auto=format&fit=crop",
     category: "graos",
     stock: 25,
     unit: "kg"
@@ -616,7 +615,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     name: "Doce de Leite",
     description: "Doce de leite cremoso feito artesanalmente, receita tradicional.",
     price: 16.50,
-    imageUrl: "https://images.unsplash.com/photo-1661413617929-cbdb09c8dd99?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1630450225625-638918c5b775?q=80&w=600&auto=format&fit=crop",
     category: "doces",
     stock: 20,
     unit: "pote 400g"
