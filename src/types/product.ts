@@ -60,7 +60,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: "Morango",
     description: "Morangos frescos e doces, cultivados sem agrotóxicos.",
     price: 8.90,
-    imageUrl: "https://images.unsplash.com/photo-1615218370629-da07db3571a4?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1518635017498-87f514b751ba?q=80&w=600&auto=format&fit=crop",
     category: "frutas",
     stock: 15,
     unit: "bandeja"
