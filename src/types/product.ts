@@ -79,7 +79,7 @@ export const MOCK_PRODUCTS: Product[] = [
     id: "6",
     name: "Milho Verde",
     description: "Milho verde fresco, colhido na hora.",
-    price: 5.50,
+    price: 2.00,
     imageUrl: "https://i.pinimg.com/736x/89/f9/f0/89f9f0ffedba8d99736506554d36c39b.jpg",
     category: "legumes",
     stock: 25,
@@ -89,7 +89,7 @@ export const MOCK_PRODUCTS: Product[] = [
     id: "7",
     name: "Mandioca",
     description: "Mandioca fresca e de qualidade superior, já descascada e higienizada.",
-    price: 5.90,
+    price: 8.00,
     imageUrl: "https://i.pinimg.com/736x/04/4b/a5/044ba527238b5b02f9648a26a266fb6b.jpg",
     category: "legumes",
     stock: 20,
@@ -153,7 +153,7 @@ export const MOCK_PRODUCTS: Product[] = [
     imageUrl: "https://i.pinimg.com/736x/a2/9b/75/a29b754eb920ad480a37de80b42a6d82.jpg",
     category: "carnes",
     stock: 8,
-    unit: "unidade 700g"
+    unit: "kg"
   },
   {
     id: "14",
@@ -183,7 +183,7 @@ export const MOCK_PRODUCTS: Product[] = [
     imageUrl: "https://i.pinimg.com/736x/ca/63/3b/ca633bf61dd2039b499c54cc25969d9e.jpg",
     category: "frutas",
     stock: 15,
-    unit: "unidade"
+    unit: "kg"
   },
   {
     id: "17",
@@ -193,7 +193,7 @@ export const MOCK_PRODUCTS: Product[] = [
     imageUrl: "https://i.pinimg.com/736x/d5/11/10/d51110871b760213b629f4c30a9a0a5c.jpg",
     category: "outros",
     stock: 10,
-    unit: "unidade 600g"
+    unit: "unidade"
   },
   {
     id: "18",
@@ -253,7 +253,7 @@ export const MOCK_PRODUCTS: Product[] = [
     imageUrl: "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?q=80&w=600&auto=format&fit=crop",
     category: "laticinios",
     stock: 10,
-    unit: "peça 500g"
+    unit: "kg"
   },
   {
     id: "24",
@@ -289,17 +289,17 @@ export const MOCK_PRODUCTS: Product[] = [
     id: "27",
     name: "Brócolis",
     description: "Brócolis fresco e orgânico.",
-    price: 5.90,
+    price: 8.90,
     imageUrl: "https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?q=80&w=600&auto=format&fit=crop",
     category: "verduras",
     stock: 15,
-    unit: "maço"
+    unit: "unidade"
   },
   {
     id: "28",
     name: "Cheiro Verde",
     description: "Cheiro verde fresco (salsinha e cebolinha).",
-    price: 2.50,
+    price: 3.50,
     imageUrl: "https://i.pinimg.com/736x/0f/ea/ee/0feaeeff1b1877a918e49585ea18de60.jpg",
     category: "temperos",
     stock: 20,
@@ -309,7 +309,7 @@ export const MOCK_PRODUCTS: Product[] = [
     id: "29",
     name: "Coentro",
     description: "Coentro fresco e aromático.",
-    price: 2.50,
+    price: 3.50,
     imageUrl: "https://i.pinimg.com/736x/b9/5c/3a/b95c3a8b210fb26a0c730761f28fdb7d.jpg",
     category: "temperos",
     stock: 15,
@@ -337,7 +337,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     imageUrl: "https://i.pinimg.com/736x/75/29/f0/7529f0adb2d2e24e6e912825a7a18f54.jpg",
     category: "legumes",
     stock: 15,
-    unit: "maço"
+    unit: "unidade"
   },
   {
     id: "32",
@@ -367,17 +367,17 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     imageUrl: "https://images.unsplash.com/photo-1571575173700-afb9492e6a50?q=80&w=600&auto=format&fit=crop",
     category: "frutas",
     stock: 12,
-    unit: "unidade"
+    unit: "kg"
   },
   {
     id: "35",
     name: "Melancia",
     description: "Melancia doce e refrescante.",
-    price: 15.00,
+    price: 5.00,
     imageUrl: "https://images.unsplash.com/photo-1563114773-84221bd62daa?q=80&w=600&auto=format&fit=crop",
     category: "frutas",
     stock: 8,
-    unit: "unidade"
+    unit: "kg"
   },
   {
     id: "36",
@@ -523,7 +523,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     id: "50",
     name: "Filé de Tilápia",
     description: "Filé de tilápia fresco, criação própria.",
-    price: 45.00,
+    price: 40.00,
     imageUrl: "https://i.pinimg.com/736x/f5/58/fa/f558fa1558227a4172b5e92f2f5bd057.jpg",
     category: "carnes",
     stock: 10,
@@ -533,7 +533,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     id: "51",
     name: "Noz Pecan",
     description: "Noz pecan fresca e crocante.",
-    price: 45.00,
+    price: 20.00,
     imageUrl: "https://i.pinimg.com/736x/8d/2d/8b/8d2d8b0844442df3205c91747cb6eade.jpg",
     category: "graos",
     stock: 8,
@@ -573,7 +573,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     id: "55",
     name: "Ovos Caipira",
     description: "Ovos de galinhas criadas soltas, alimentação natural e orgânica.",
-    price: 12.90,
+    price: 15.00,
     imageUrl: "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?q=80&w=600&auto=format&fit=crop",
     category: "organicos",
     stock: 50,
@@ -594,7 +594,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     id: "57",
     name: "Feijão",
     description: "Feijão fresco cultivado no sítio, colhido no ponto certo.",
-    price: 9.50,
+    price: 7.50,
     imageUrl: "https://i.pinimg.com/736x/4d/f1/77/4df17787a74343a8ef812f4bd23353d9.jpg",
     category: "graos",
     stock: 25,
@@ -604,7 +604,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     id: "58",
     name: "Suco de Laranja",
     description: "Suco de laranja natural, feito com frutas frescas colhidas no sítio.",
-    price: 12.00,
+    price: 18.00,
     imageUrl: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=600&auto=format&fit=crop",
     category: "bebidas",
     stock: 15,
